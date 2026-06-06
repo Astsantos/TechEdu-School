@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEdu School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+<header>
+
+<input type="checkbox" id="toggler">
+
+<label for="toggler" class="fas fa-bars"></label>
+ 
+<a href="index.html" class="logo">TechEdu</a>
+
+
+<nav class="navbar">
+    <a href="index.html">Página de Cursos</a>
+    <a href="atendimento.html">Atendimento</a>
+    <a href="areaaluno.html">Área do aluno</a>
+</nav>
+ 
+<div class="pages">
+    <a href="login.html" class="pages-btn">Login</a>
+    <i class="ia">/</i>
+    <a href="criarconta.html" class="pages-btn">Registre-se</a>
+</div>
+
+<div class="icons">
+    <a href="perfil.html" class="fas  fa-user-circle"></a>
+</div>
+
+</header>
+<section class="home">
+    <div class="content">
+        <div class="menu-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="areaaluno.html"><i class="fas fa-laptop"></i> Meus Cursos</a>
+            <a href="atendimento.html"><i class="fas fa-phone-alt"></i> Contatos</a>
+    </div>
+
+<div class="top-bar">
+    <h3>Atendimento</h3>
+        <button> <i class="fas fa-filter"></i></button>
+</div>
+<p id="status"></p>
+<div class="chat-area"> 
+        <div class="contact-box"></div>
+    </div>
+    <div class="chat-main">
+        <div id="historic"></div> 
+        <div class="chat-input">
+            <div class="tools">
+                <i class="fas fa-less-than"></i>
+                <i class="far fa-square"></i>
+                <i class="fas fa-download"></i>
+            </div>
+            <input type="text" placeholder="Digite a mensagem" id="message-input">
+            <button id="btn-submit" class="btn-submit">Enviar</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html> 
