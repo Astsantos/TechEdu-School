@@ -1,4 +1,4 @@
-/* Chat*/
+/* Chat- captura por id */
 
 const input = document.getElementById("message-input");
 const sendButton = document.getElementById("btn-submit");
