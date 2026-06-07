@@ -18,7 +18,7 @@ Se não souber uma informação específica, informe isso em vez de inventar uma
 
 app.post('/api/chat', async (req, res) => {
     try {
-        /* MODIFICAÇÃO: Captura a mensagem e o histórico enviados pelo front-end*/
+        /* Captura a mensagem e o histórico enviados pelo front-end*/
         const { mensagem, historico } = req.body;
 
         const model = genAI.getGenerativeModel({
@@ -26,12 +26,12 @@ app.post('/api/chat', async (req, res) => {
             systemInstruction: systemPrompt
         });
 
-        /*NOVIDADE: Inicia o chat carregando o histórico recebido (ou um array vazio se for a primeira mensagem)*/
+        /* Inicia o chat carregando o histórico recebido (ou um array vazio se for a primeira mensagem)*/
         const chat = model.startChat({
             history: historico || []
         });
 
-        /* NOVIDADE: Envia a nova mensagem dentro do contexto desse chat*/
+        /* Envia a nova mensagem dentro do contexto desse chat*/
         const result = await chat.sendMessage(mensagem);
         const resposta = result.response.text();
 
