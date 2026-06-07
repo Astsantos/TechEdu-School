@@ -47,7 +47,7 @@ async function sendMessage() {
                 "Content-Type": "application/json"
             },
 
-            /* MODIFICAÇÃO: Enviamos a mensagem atual E o histórico acumulado*/ 
+            /* Enviam a mensagem atual E o histórico acumulado*/ 
             body: JSON.stringify({
                 mensagem: texto,
                 historico: historicoChat
@@ -66,7 +66,7 @@ async function sendMessage() {
                 </div>
             `;
 
-            /* NOVIDADE: Salva a pergunta do usuário e a resposta do bot no histórico para a próxima requisição*/ 
+            /*Salva a pergunta do usuário e a resposta do bot no histórico para a próxima requisição*/ 
             historicoChat.push({
                 role: "user",
                 parts: [{ text: texto }]
