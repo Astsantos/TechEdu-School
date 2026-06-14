@@ -32,7 +32,7 @@ CREATE TABLE Usuario (
 -- CURSO
 -- ------------------------------------------------------------
 CREATE TABLE Curso (
-  id               INT UNSIGNED    NOT NULL AUTO_INCREMENT,
+  id                INT UNSIGNED    NOT NULL AUTO_INCREMENT,
   nome_curso       VARCHAR(200)    NOT NULL,
   descricao_curso  TEXT                NULL,
   carga_horaria    SMALLINT UNSIGNED NOT NULL,       -- em horas; > 0 garantido pelo CHECK
@@ -88,17 +88,18 @@ CREATE TABLE Matricula (
 
 -- ------------------------------------------------------------
 -- ATENDIMENTO
--- funcionario_id pode ser NULL (ainda sem responsável)
+-- Atende ao sistema de agendamentos e mensagens exigido no projeto
 -- ------------------------------------------------------------
 CREATE TABLE Atendimento (
   id             INT UNSIGNED    NOT NULL AUTO_INCREMENT,
   aluno_id       INT UNSIGNED    NOT NULL,
-  funcionario_id INT UNSIGNED        NULL,
+  funcionario_id INT UNSIGNED        NULL,  -- pode ser NULL (inicialmente sem responsável)
+  assunto        VARCHAR(255)    NOT NULL,  -- Campo adicionado para o formulário do site
+  descricao      TEXT            NOT NULL,  -- Corresponde à mensagem enviada
   data           DATE            NOT NULL,
   horario        TIME            NOT NULL,
-  descricao      TEXT                NULL,
-  status         ENUM('agendado','em_andamento','concluido','cancelado')
-                                 NOT NULL DEFAULT 'agendado',
+  status         ENUM('agendado','em_andamento','concluido','cancelado') NOT NULL DEFAULT 'agendado',
+  data_criacao   DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (id),
   CONSTRAINT fk_atendimento_aluno FOREIGN KEY (aluno_id)
@@ -130,7 +131,6 @@ CREATE TABLE Mensagem (
 
 -- ============================================================
 --  VIEW AUXILIAR: vagas disponíveis por turma
---  Regra: vagas_preenchidas = COUNT de matrículas com status = 'ativa'
 -- ============================================================
 CREATE OR REPLACE VIEW vw_vagas_turma AS
 SELECT
