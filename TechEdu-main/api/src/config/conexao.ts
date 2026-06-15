@@ -1,17 +1,28 @@
-import mysql from 'mysql2/promise';
+import mysql, { Pool, PoolConnection } from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  port: Number(process.env.DB_PORT) || 3306,
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'app_db',
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
 
 export default pool;
+
+export async function testConnection(): Promise<void> {
+  let conn: PoolConnection | null = null;
+  try {
+    conn = await pool.getConnection();
+    console.log('✅ Conectado ao MySQL');
+  } catch (err) {
+    console.error('❌ Erro na conexão:', err);
+  } finally {
+    if (conn) conn.release();
+  }
+}
