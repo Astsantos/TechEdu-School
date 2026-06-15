@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../style/style.css">
 </head>
+
 <body>
 
-<div class="register-page">
-    <div class="register-card">
-        <h2 class="register-title">Cadastre-se</h2>
-        <form class="register-form" action="index.html">
-            <label class="register-label">E-mail:</label>
-                <input class="register-input" type="email">
-            <label class="register-label">Senha:</label>
-                <input class="register-input" type="password">
-            <label class="register-label">Confirme a Senha:</label>
-                <input class="register-input" type="confitmpassword">            
-            <button class="register-btn" type="submit">Continue »</button>
-            <div class="register-divider">
-                <span>OR</span>
-            </div>
-            <div class="register-social">
-            <button class="register-btn1">Continuar com o Google »</button>
-            <button class="register-btn1">Continuar com o GitHub »</button>
-            </div>
-        </form>
-    </div>
-</div>
+    <div class="register-page">
+        <div class="register-card">
+            <h2 class="register-title">Cadastre-se</h2>
+            <form class="register-form" method="POST" id="register">
+                <label class="register-label" for="name">Nome:</label>
+                <input class="register-input" type="text" id="name" name="name" required>
 
+                <label class="register-label" for="surname">Sobrenome:</label>
+                <input class="register-input" type="text" id="surname" name="surname" required>
+
+                <label class="register-label" for="cpf">CPF:</label>
+                <input class="register-input" type="number" id="cpf" name="cpf" required>
+
+                <label class="register-label" for="birthday">Data de nascimento:</label>
+                <input class="register-input" type="date" id="birthday" name="birthday" required>
+
+                <label class="register-label" for="cep">CEP:</label>
+                <input class="register-input" type="number" id="cep" name="cep" required>
+
+                <label class="register-label" for="address">Endereco:</label>
+                <input class="register-input" type="text" id="address" name="address" required>
+
+                <label class="register-label" for="phone">Telefone:</label>
+                <input class="register-input" type="tel" id="phone" name="phone" required>
+
+                <label class="register-label" for="email">E-mail:</label>
+                <input class="register-input" type="email" id="email" name="email" required>
+
+                <label class="register-label" for="senha">Senha:</label>
+                <input class="register-input" type="password" id="senha" name="senha" required>
+
+                <label class="register-label" for="confirmarSenha">Confirme a Senha:</label>
+                <input class="register-input" type="password" id="confirmarSenha" name="confirmarSenha" required>
+
+                <button class="register-btn" type="submit">Continue »</button>
+
+                <div class="register-divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="register-social">
+                    <button class="register-btn1" type="button">Continuar com o Google »</button>
+                    <button class="register-btn1" type="button">Continuar com o GitHub »</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/dist/cadastro.js"></script>
 </body>
+
 </html>

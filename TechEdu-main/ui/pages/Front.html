@@ -46,28 +46,21 @@
     <div class="box-course">
     <img src="imagens/front.png"class="course-image"></img>
     <div class="course-info">
-        <h2>Curso de Front-End</h2>
-        <h3 class="course">No nosso curso de Front-End o aluno vai aprender a desenvolver sites e webapps com HTML, CSS e JavaScript, aprender as boas práticas e as últimas versões do JavaScript, estudar ferramentas e frameworks do mercado como React, Angular, Webpack, jQuery e mais.</h3>
-        <a href="matricula.html" class="bnt-course">
+        <h2 id="titulo-curso" data-content-id="1">Curso de Front-End</h2>
+        <h3 id="descricao-curso" class="course">No nosso curso de Front-End o aluno vai aprender a desenvolver sites e webapps com HTML, CSS e JavaScript, aprender as boas práticas e as últimas versões do JavaScript, estudar ferramentas e frameworks do mercado como React, Angular, Webpack, jQuery e mais.</h3>
+        <span>Carga Horaria</span>
+        <ul><li id="cargahoraria-curso"></li></ul>
+        <p>Matriz Curricular</p>
+        <div id="matriz-curso"></div>
+        
+        <button class="bnt-course" id="matricula">
             Matricule-se
-        </a>
+        </button>
     </div>
     </div>
  </div>
-
-
-
-
-
-
-
-
-
-
-
 </section>
- 
 
- 
+<script type="module" src="../scripts/dist/detalhesCurso.ts"></script>
 </body>
 </html> 

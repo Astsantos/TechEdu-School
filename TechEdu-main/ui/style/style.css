@@ -8,7 +8,7 @@
     box-sizing: border-box;
     outline: none; border: none;
     text-decoration: none;
-    text-transform: capitalize;
+    text-transform: none;
     transition: .2s linear;
 }
 html{
@@ -85,6 +85,7 @@ section{
     border-radius:5px;
     cursor:pointer;
     transition:.3s;
+    color: black;
 }
 
 .login-btn:hover{

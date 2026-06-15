@@ -1,17 +1,10 @@
 import { Router } from 'express';
-import * as cursoController from '../controllers/cursoController';
-import { uploadFile } from '../middleware/upload';
-import { validateCurso } from '../middleware/validateCurso';
+import { obterDetalhesCurso, matricularNoCurso } from '../controllers/cursoController';
+import { autenticarToken } from '../middleware/authMiddleware';
 
 const router = Router();
 
-router.post(
-  '/cursos',
-  uploadFile,       // handles file upload
-  validateCurso,    // validates text fields and file existence
-  cursoController.createCurso
-);
-
-router.get('/cursos/:id', cursoController.getCursoById);
+router.get('/:id', autenticarToken, obterDetalhesCurso);
+router.post('/:id/matricular', autenticarToken, matricularNoCurso);
 
 export default router;
