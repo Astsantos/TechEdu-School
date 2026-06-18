@@ -7,6 +7,7 @@ const pool = mysql.createPool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   user: process.env.DB_USER,
+  password: '',              // 👈 linha adicionada
   database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
